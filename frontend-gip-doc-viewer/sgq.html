@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SGQ</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./sgq.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <p></p>
+      <p></p>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-1">
+            <nav class="nav flex-column">
+              <a aria-current="page"></a>
+              <a>
+                <img src="./mbf.jpg" />
+              </a>
+              <p></p>
+              <a>
+                <button
+                  class="btn btn-sm btn-outline-secondary position-relative"
+                  type="button"
+                  onclick="upDateItem()"
+                >
+                  PO 1
+                  <span
+                    class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
+                  >
+                    <span class="visually-hidden">New alerts</span>
+                  </span>
+                </button>
+              </a>
+              <p></p>
+              <a>
+                <button
+                  class="btn btn-sm btn-outline-secondary"
+                  type="button"
+                  onclick="upDateItem()"
+                >
+                  PO 2
+                </button>
+              </a>
+              <p></p>
+              <a>
+                <button
+                  class="btn btn-sm btn-outline-secondary"
+                  type="button"
+                  onclick="openPopup('PO')"
+                >
+                  +
+                </button>
+              </a>
+            </nav>
+          </div>
+
+          <div class="col-11 menu">
+            <div class="content">
+              <ul class="nav nav-underline">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    onclick="updateFile('http://localhost:3000/api/documents/mq-00/mq-00.pdf')"
+                  >
+                    MQ-00
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link position-relative"
+                    onclick="updateFile('http://localhost:3000/api/documents/mq-00/po-00/po-00.pdf')"
+                  >
+                    PO-00
+                    <span
+                      class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
+                    >
+                      <span class="visually-hidden">New alerts</span>
+                    </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    onclick="updateFile('http://localhost:3000/api/documents/mq-00/po-00/it-00/it-00.doc')"
+                  >
+                    IT-00
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    onclick="updateFile('http://localhost:3000/api/documents/mq-00/po-00/it-00/fr-00/fr-00.xls')"
+                  >
+                    FR-00
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <button
+                    class="btn btn-outline-primary"
+                    type="button"
+                    onclick="openPopup('FILE')"
+                    style="
+                      --bs-btn-padding-y: 0.25rem;
+                      --bs-btn-padding-x: 0.5rem;
+                      --bs-btn-font-size: 0.9rem;
+                    "
+                  >
+                    +
+                  </button>
+                </li>
+              </ul>
+              <div class="card">
+                <embed
+                  id="pdfViewer"
+                  src="http://localhost:3000/api/documents/mq-00/mq-00.pdf"
+                  width="900px"
+                  height="1300px"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="popup" class="popup">
+          <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <p></p>
+            <div id="formArquivo" class="formArquivo">
+              <div class="contentForm">
+                <div class="form">
+                  <p></p>
+                  <div class="mb-3">
+                    <label for="name" class="form-label"
+                      ><b>Novo Arquivo</b></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      placeholder="Nome"
+                    />
+                  </div>
+
+                  <select class="form-select form-select-sm" aria-label="Tipo">
+                    <option selected>Tipo</option>
+                    <option value="2">IT</option>
+                    <option value="3">FR</option>
+                  </select>
+                  <p></p>
+                  <select
+                    class="form-select form-select-sm"
+                    aria-label="Formato"
+                  >
+                    <option selected>Formato</option>
+                    <option value="1">PDF</option>
+                    <option value="2">DOC</option>
+                    <option value="3">XLS</option>
+                    <option value="3">JPEG</option>
+                  </select>
+
+                  <div class="mb-3">
+                    <label for="formFileSm" class="form-label"></label>
+                    <input
+                      class="form-control form-control-sm"
+                      id="formFileSm"
+                      type="file"
+                    />
+                  </div>
+
+                  <button
+                    class="btn btn-sm btn-outline-primary"
+                    type="button"
+                    onclick="AddItem()"
+                  >
+                    Gravar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div id="formPO" class="formPO">
+              <div class="contentForm">
+                <div class="form">
+                  <p></p>
+                  <div class="mb-3">
+                    <label for="name" class="form-label"
+                      ><b>Novo Arquivo</b></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      placeholder="Nome"
+                    />
+                  </div>
+
+                  <select class="form-select form-select-sm" aria-label="Tipo">
+                    <option selected>Tipo</option>
+                    <option value="1">MQ</option>
+                    <option value="1">PO</option>
+                  </select>
+                  <p></p>
+                  <select
+                    class="form-select form-select-sm"
+                    aria-label="Formato"
+                  >
+                    <option selected>Formato</option>
+                    <option value="1">PDF</option>
+                    <option value="2">DOC</option>
+                    <option value="3">XLS</option>
+                    <option value="3">JPEG</option>
+                  </select>
+
+                  <div class="mb-3">
+                    <label for="formFileSm" class="form-label"></label>
+                    <input
+                      class="form-control form-control-sm"
+                      id="formFileSm"
+                      type="file"
+                    />
+                  </div>
+
+                  <button
+                    class="btn btn-sm btn-outline-primary"
+                    type="button"
+                    onclick="AddItem()"
+                  >
+                    Gravar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">footer</div>
+    </div>
+  </body>
+</html>

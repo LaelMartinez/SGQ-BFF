@@ -1,0 +1,7 @@
+Conversor para pdf
+sudo apt-get install unoconv  # Para sistemas baseados em Debian/Ubuntu
+unoconv -f pdf arquivo.doc
+
+
+Extensão do office no chrome
+https://chromewebstore.google.com/detail/office-editing-for-docs-s/gbkeegbaiigmenfmjfclcdgdpimamgkj?utm_source=ext_app_menu
