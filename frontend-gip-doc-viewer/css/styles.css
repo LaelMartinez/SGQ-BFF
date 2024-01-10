@@ -5,7 +5,7 @@
 
 html, body {
     height: 200vh;
-    width: 200vh;
+    width: 100vh;
     font-family: "Ubuntu", sans-serif;
     font-size: 16px;
     background-color: transparent;
@@ -16,7 +16,7 @@ html, body {
     display: flex;
     flex-direction: column ;
     height: 200vh;
-    width: 200vh;
+    width: 100vh;
     background-color: transparent;
     text-align: center;
 }
@@ -44,9 +44,43 @@ html, body {
     width: 90%;    
 }
 
+.pdfViewer2{
+    height: 1400px;
+    width: 90%;    
+}
+
+
 .menu{
     font-size: 14px;
 }
+
+.botaoTable {
+    position: absolute;
+    bottom: 0;
+}
+
+
+.chart1 {
+    height: 200px;
+    width: 1000px;    
+    padding: 10px;
+    background-color: transparent;
+    text-align: center;
+}
+
+.chart2 {
+    align-items: center;
+    height: 400px;
+    width: 400px;    
+    padding: 10px;
+    background-color: transparent;
+    text-align: center;
+}
+
+
+ 
+
+
 
 .form{
     height: 400px;
@@ -58,7 +92,7 @@ html, body {
 
 .contentForm{
     align-items: center;
-    height: 400px;
+    height: 500px;
     width: 450px;    
     padding: 50px;
     background-color:rgb(151, 140, 140) ;

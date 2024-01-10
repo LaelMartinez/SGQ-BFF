@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico Básico</title>
+    <!-- Inclua a biblioteca Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Gráfico Básico</h1>
+    <!-- Elemento canvas para desenhar o gráfico -->
+    <canvas id="myChart" width="400" height="200"></canvas>
+
+    <script>
+        // Dados do gráfico
+        var data = {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+            datasets: [{
+                label: 'Vendas Mensais',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                data: [50, 60, 45, 70, 80]
+            }]
+        };
+
+        // Configurações do gráfico
+        var options = {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        };
+
+        // Obtém o contexto do canvas
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        // Cria o gráfico de barras
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: options
+        });
+    </script>
+</body>
+</html>
