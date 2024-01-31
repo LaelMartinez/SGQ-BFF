@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   await cors(req, res);
 
   const form = new IncomingForm();
-  form.uploadDir = 'U:\\sgq\\uploads';
+  form.uploadDir = 'U:\\dados\\sgq\\uploads';
 
   try {
     await new Promise((resolve, reject) => {

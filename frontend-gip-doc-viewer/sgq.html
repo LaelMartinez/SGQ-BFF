@@ -31,7 +31,11 @@
             <nav class="nav flex-column">
               <a aria-current="page"></a>
               <a>
-                <img src="./mbf.jpg" />
+                <select name="mq" id="mq"  class="form-select form-select-sm" aria-label="Default select example">
+                  <option selected value="mq-00">MQ-00</option>
+                  <option value="mq-01">MQ-01</option>
+                  <option value="mq-02">MQ-02</option>
+                </select>
               </a>
               <p></p>
               <a>
@@ -82,6 +86,7 @@
                   >
                     MQ-00
                   </a>
+                  
                 </li>
                 <li class="nav-item">
                   <a
@@ -179,6 +184,11 @@
                 </li>
               </ul>
               <div class="card">
+                <div class="card-button">
+                  <button class="btn btn-outline-primary" type="button" onclick="openPopup('TR', 'mq-00/mq-00.pdf')">
+                    Trocar Arquivo
+                  </button>
+                </div>
                 <embed
                   id="pdfViewer"
                   src="http://localhost:3000/api/documents/mq-00/mq-00.pdf"
@@ -333,6 +343,34 @@
               </div>
             </div>
 
+            <div id="formTR" class="formTR">
+              <div class="contentForm">
+                <div class="form">
+                  <h5>Trocar Arquivo</h5>
+                  <p>
+
+                  <div class="mb-3">
+                    <label for="formFileSm3" class="form-label"></label>
+                    <input
+                      class="form-control form-control-sm"
+                      id="formFileSm2"
+                      type="file"
+                    />
+                  </div>
+
+                  <button
+                    class="btn btn-sm btn-outline-primary"
+                    type="button"
+                    onclick="uploadFile('formFileSm3')"
+                  >
+                    Enviar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+
+
             <div id="formAL" class="formAL">
               <div class="contentForm">
                 <div class="form">
@@ -362,6 +400,10 @@
                 </div>
               </div>
             </div>
+
+
+
+
           </div>
         </div>
 

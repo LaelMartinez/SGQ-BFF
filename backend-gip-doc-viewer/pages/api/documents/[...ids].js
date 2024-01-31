@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   const fileExtension = path.extname(singleStringId).toLowerCase();
 
   // Construa o caminho completo
-  const completePath = path.join('u://sgq/', singleStringId);
+  const completePath = path.join('u://dados//sgq/', singleStringId);
 
   try {
     const fileContent = fs.readFileSync(completePath);
